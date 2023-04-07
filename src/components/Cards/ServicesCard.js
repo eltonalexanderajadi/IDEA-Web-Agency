@@ -1,0 +1,94 @@
+import React from 'react'
+import styled from 'styled-components';
+
+const Container = styled.div`
+    
+
+`;
+
+const CardContainer = styled.div`
+    padding: 0 3rem 0 3rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+`;
+
+const ServiceCard = styled.div`
+    background: var(--color-primary);
+    padding: 2.4rem 5rem;
+    border: 1px solid transparent;
+    transition: var(--transition);
+    box-shadow: -5px 5px;
+    
+    
+`;
+
+const Text = styled.div`
+    width: 350px;
+    margin-bottom: 2rem;
+    
+    span {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.1;
+        letter-spacing: 2px;
+    }
+`;
+
+const P = styled.div`
+    width: 420px;
+
+    span {
+        color: var( --color-light);
+        letter-spacing: 2px;
+    }
+`;
+
+const ServicesCard = () => {
+  return (
+    <Container>
+        <CardContainer>
+
+        <ServiceCard>
+        <Text> <span>Consultant Business Strategy </span></Text>
+        <P>
+            <span> We provide the best solutions for your digital</span>
+            <span> products in order to help improve digital products,</span>
+            <span> so that you are more advanced.</span>
+       </P>
+        </ServiceCard>
+
+        <ServiceCard>
+        <Text> <span>Google Ads Management </span></Text>
+        <P>
+            <span> Help manage ads on google to further maximize</span>
+            <span> potential customer reach and give interest to your project.</span>
+       </P>
+        </ServiceCard>
+
+        <ServiceCard>
+        <Text> <span> Research And Discovery</span></Text>
+        <P>
+            <span> Conduct in-depth and detailed analysis to obtain as much </span>
+            <span> information as possible and high accuracy required</span>
+            <span> by our customer product needs.</span>
+       </P>
+        </ServiceCard>
+
+        <ServiceCard>
+        <Text> <span> Social Media Marketing </span></Text>
+        <P>
+            <span>  Provide customer attraction on social media for your </span>
+            <span>  product, because we will help manage your products</span>
+            <span>  professional account and attract more customers.</span>
+       </P>
+        </ServiceCard>
+
+        </CardContainer>
+    </Container>
+  )
+}
+
+export default ServicesCard
