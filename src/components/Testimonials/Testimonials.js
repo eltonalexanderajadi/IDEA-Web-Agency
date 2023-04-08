@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
+import { mobile } from '../../Responsive';
+import { tablet } from "../../Responsive";
 import { testimonialsData } from './TestimonialsData';
 // import Swiper core and required modules
 import { Navigation, Pagination } from 'swiper';
@@ -18,6 +20,9 @@ const TestimonialContainer = styled.div`
     .testimonials__container {
         width: 50%;
         padding: 4rem 4rem;
+        ${tablet({ width: "75%"})};
+        ${mobile({ width: "90%", padding: "4rem 0rem"})};
+        
     }
 
     .testimonial {
@@ -43,6 +48,8 @@ const TestimonialContainer = styled.div`
         display: block;
         width: 80%;
         margin: 0.8rem auto 0;
+        ${mobile({ width: "90%"})};
+        
     }
 
     .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -55,6 +62,7 @@ const TestimonialContainer = styled.div`
 const Split = styled.div`
     display: flex;
     justify-content: space-between;
+    ${tablet({ flexDirection: "column"})};
 `;
 
 const Left = styled.div`
@@ -62,6 +70,7 @@ const Left = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    ${mobile ({ padding: "0 2rem 0 2rem"})};
 
 `;
 
@@ -71,6 +80,8 @@ const Right = styled.div`
     display: flex;
     padding: 3rem;
     flex-direction: column;
+    ${tablet({ padding: "3rem 12rem 3rem 6rem"})};
+    ${mobile ({ display: "flex", flexDirection: "column", padding: "1rem 2rem 1rem 2rem"})};
 
     h5 {
     color: #000000;
@@ -79,9 +90,11 @@ const Right = styled.div`
 
 const Title = styled.div`
     margin-bottom: 2rem;
+    ${mobile ({ marginBottom: "1rem"})};
 
     &.title {
         margin-left: 0rem;
+        ${mobile ({ textAlign: "center"})};
     }
 
     &.title:before {
@@ -93,28 +106,37 @@ const Title = styled.div`
         left: 0;
         top: 5%;
         position: absolute;
+        ${mobile ({ display: "none"})};
         
     }
 `;
 
 const Text = styled.div`
     width: 470px;
+    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem" })};
 
     span {
         font-size: 2.5rem;
         font-weight: bold;
         line-height: 1.1;
         letter-spacing: 2px;
+        ${mobile ({ fontSize: "2rem"})};
     }
 `;
 
 const P = styled.div`
     width: 420px;
+    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem"})};
 
     span {
         color: var( --color-light);
     }
 `;
+
+const Btn = styled.div`
+    ${mobile ({ alignItems: "center", justifyContent: "center", textAlign: "center", display: "flex"})};
+`;
+
 
 const Button = styled.button`
     width: 100px;
@@ -140,9 +162,11 @@ const Testimonials = () => {
                     <P>
                     <span>Choose a beautiful and minimalist web agency with values that converts more visitors that any website.</span>
                     </P>
+                    <Btn>
                     <Button>
                         Learn More
                     </Button>
+                    </Btn>
                     </Right>
                     </Split>
 

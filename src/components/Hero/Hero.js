@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {mobile} from "../../Responsive";
+import { mobile } from '../../Responsive';
+import { tablet } from "../../Responsive";
 import Navbar from '../Navbar/Navbar';
 import HeroImage from '../../assets/hero.jpg';
 
@@ -8,11 +9,14 @@ import HeroImage from '../../assets/hero.jpg';
 const HeroContainer = styled.div`
     height: 100vh;
     background: linear-gradient(to right, #ffffff 50%, #000000 50%);
+    ${tablet({ background: "#121212", flexDirection: "column", borderRadius: "0px 0px 15px 15px", height: "100%"})};
+    
 `;
 
 const Split = styled.div`
     display: flex;
     justify-content: space-between;
+    ${tablet({ display: "flex", flexDirection: "column"})};
 `;
 
 const Left = styled.div`
@@ -21,6 +25,10 @@ const Left = styled.div`
     display: flex;
     gap: 2rem;
     flex-direction: column;
+    ${mobile ({ padding: "2rem"})};
+     h1 {
+        ${mobile ({ fontSize: "2rem"})};
+     }
     
 `;
 
@@ -30,17 +38,26 @@ const Right = styled.div`
     display: flex;
     padding: 3rem;
     flex-direction: column;
+    ${mobile({ padding: "2rem" })};
 
     h5 {
+        font-size: 20px;
         color: #ffffff;
+        ${tablet({ color: "gray"})};
+        ${mobile({ width: "300px", fontSize: "17px", })};
     }
 `;
 
 const Text = styled.div`
-    margin-top: 4rem;
-    font-size: 20px;
-    width: 470px;
     letter-spacing: 5px;
+    width: 470px;
+    margin-top: 4rem;
+    h1 {
+       
+        ${tablet({ color: "#ffffff"})};
+        ${mobile({ width: "350px"  })};
+    }     
+   
 `;
 
 const Button = styled.button`
@@ -64,7 +81,7 @@ const HeroImgContainer = styled.div`
         right: 12rem;
         position: absolute;
         border-radius: 2.5rem;
-
+        ${tablet({ display: "none"})};
     }
 `;
 

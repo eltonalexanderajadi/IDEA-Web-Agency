@@ -1,13 +1,15 @@
 import { Facebook, Instagram, LinkedIn } from '@mui/icons-material';
 import React from 'react';
 import styled from 'styled-components';
-
+import { mobile } from '../../Responsive';
+import { tablet } from "../../Responsive";
 
 const FooterContainer = styled.div`
     margin-top: 5rem;
     padding: 2.5rem 3.5rem;
     background: var(--color-bg-variant);
     border-radius: 15px 15px 0 0;
+    ${mobile({ padding: "1.5rem 2.5rem"})};
 `;
 
 const Split = styled.div`
@@ -15,6 +17,7 @@ const Split = styled.div`
     justify-content: space-between;
     margin-bottom: 4rem;
     align-items: center;
+    ${mobile({ flexDirection: "column"})};
 `;
 
 const Left = styled.div`
@@ -22,6 +25,7 @@ const Left = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    ${mobile({ width: ""})};
 
 `;
 
@@ -30,6 +34,8 @@ const Right = styled.div`
     display: flex;
     padding: 3rem 0rem 3rem 0rem;
     flex-direction: column;
+    ${mobile({ padding: "3rem 7rem 3rem 2.5rem"})};
+    
 
     h5 {
     color: #000000;
@@ -71,12 +77,14 @@ const FooterBottom = styled.div`
     align-items: center;
     padding: 10px;
     justify-content: space-between;
+    ${mobile({ flexDirection: "column"})};
 `;
 
 const BottomLeft = styled.div`
     display: flex;
     justiy-content: center;
     align-items: center;
+    ${mobile({ flexDirection: "column",  paddingTop: "1.5rem"})};
 `;
 
 const BottomText = styled.div`
@@ -87,10 +95,12 @@ const Center = styled.div`
     display: flex;
     justiy-content: center;
     align-items: center;
+    ${mobile({ flexDirection: "column", paddingTop: "2rem"})};
 `;
 
 const Copyright = styled.div`
     color: gray;
+    ${mobile({ textAlign: "center"})};
 
     small {
         letter-spacing: 1px;
@@ -101,6 +111,7 @@ const BottomRight = styled.div`
     display: flex;
     justiy-content: center;
     align-items: center;
+    ${mobile({ flexDirection: "column",  paddingTop: "2rem"})};
 `;
 
 const SocialLinks = styled.div`

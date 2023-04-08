@@ -1,25 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import { mobile } from '../../Responsive';
+import { tablet } from "../../Responsive";
 
 
 const CardContainer = styled.div`
     position: relative;
+    
+    
     
 `;
 
 
 const Card = styled.div`
     width: 10rem;
-    height: 12rem;
+    height: 13rem;
     position: absolute;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    width: 10rem;
     text-align: center;
     background: var(--color-primary);
-    padding: 0px 26px 2rem 26px; 
+    padding: 0px 26px 2rem 26px;
+    box-shadow: -5px 5px;
+    ${mobile ({ width: "19rem"})};
+    
 
     span {
         margin-top: 2rem;
@@ -45,9 +51,6 @@ const Shadow = styled.div`
 const AboutCard = ({number, heading}) => {
   return (
     <CardContainer>
-        <Shadow>
-
-        </Shadow>
         <Card>
             <span> {number} </span>
             <p> {heading} </p>
