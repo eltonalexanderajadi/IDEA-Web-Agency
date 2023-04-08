@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
+import { mobile } from '../../Responsive';
+import { tablet } from "../../Responsive";
 
 const Container = styled.div`
     
@@ -7,12 +9,15 @@ const Container = styled.div`
 `;
 
 const CardContainer = styled.div`
-    padding: 0 3rem 0 3rem;
+    padding: 0 12rem 0 6rem;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     position: relative;
+    ${tablet({ gridTemplateColumns: "1fr", padding: "0 6rem 0 6rem" })};
+    ${mobile ({ padding: "0 3rem 0 1.2rem" })};
+    
 `;
 
 const ServiceCard = styled.div`
@@ -21,6 +26,7 @@ const ServiceCard = styled.div`
     border: 1px solid transparent;
     transition: var(--transition);
     box-shadow: -5px 5px;
+    ${mobile ({ padding: "1.2rem 1.2rem"})};
     
     
 `;
@@ -28,19 +34,23 @@ const ServiceCard = styled.div`
 const Text = styled.div`
     width: 350px;
     margin-bottom: 2rem;
+    ${mobile ({ width: "300px"})};
     
     span {
         font-size: 2rem;
         font-weight: bold;
         line-height: 1.1;
         letter-spacing: 2px;
+        ${mobile ({ fontSize: "1.4rem"})};
     }
 `;
 
 const P = styled.div`
     width: 420px;
+    ${mobile ({ width: "300px"})};
 
     span {
+        ${mobile ({ fontSize: "0.8rem"})};
         color: var( --color-light);
         letter-spacing: 2px;
     }
