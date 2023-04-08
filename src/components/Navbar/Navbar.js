@@ -20,6 +20,7 @@ const Nav = styled.nav`
       padding: 15px 0;
       margin-left: 20px;
       font-size: 30px;
+      ${tablet({ color: "#ffffff"})};
   }
 
  

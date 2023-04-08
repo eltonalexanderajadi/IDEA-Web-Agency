@@ -15,6 +15,8 @@ const Ul = styled.ul`
       transition: var(--transition);
       color: #ffffff;
       ${mobile({ color: "#fff"})};
+      ${tablet({ color: "#fff"})};
+
 
       &:hover {
         color: #fff;
@@ -32,7 +34,7 @@ const Ul = styled.ul`
       
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 1024px) {
         transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'}; 
         transition: transform 0.3s ease-in-out;
     }
@@ -51,6 +53,21 @@ const Ul = styled.ul`
 
 
      })};
+
+     ${tablet({
+        
+      flexFlow: "column nowrap",
+      backgroundColor: "var(--color-primary)",
+      position: "fixed",
+      top: "0",
+      right: "0",
+      height: "100vh",
+      width: "100vw",
+      paddingTop: "3.5rem",
+      zIndex: "1"
+
+
+   })};
 
 
 

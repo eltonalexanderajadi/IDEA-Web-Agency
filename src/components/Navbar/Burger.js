@@ -13,6 +13,7 @@ const StyledBurger = styled.div`
     right: 20px;
     z-index: 20;
     display: none;
+    ${tablet({ display: "flex", justifyContent: "space-around", flexFlow: "column nowrap"})};
 
     @media (max-width: 600px) {
       display: flex;
@@ -20,10 +21,12 @@ const StyledBurger = styled.div`
       flex-flow: column nowrap;       
     }
 
+
+
     div {
         width: 2rem;
         height: 0.25rem;
-        background-color: ${({ open }) => open ? '#fff' : "#333"};
+        background-color: ${({ open }) => open ? '#fff' : "#ffffff"};
         border-radius: 10px;
         transform-origin: 1px;
         transition: all 0.3s linear;
