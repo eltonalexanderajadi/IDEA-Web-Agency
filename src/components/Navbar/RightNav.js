@@ -42,12 +42,12 @@ const Ul = styled.ul`
     ${mobile({
         
         flexFlow: "column nowrap",
-        backgroundColor: "var(--color-primary)",
+        backgroundColor: "var(--color-bg-variant)",
         position: "fixed",
         top: "0",
         right: "0",
         height: "100vh",
-        width: "100vw",
+        width: "50vw",
         paddingTop: "3.5rem",
         zIndex: "1"
 
@@ -57,12 +57,12 @@ const Ul = styled.ul`
      ${tablet({
         
       flexFlow: "column nowrap",
-      backgroundColor: "var(--color-primary)",
+      backgroundColor: "var(--color-bg-variant)",
       position: "fixed",
       top: "0",
       right: "0",
       height: "100vh",
-      width: "100vw",
+      width: "50vw",
       paddingTop: "3.5rem",
       zIndex: "1"
 
@@ -79,8 +79,8 @@ const RightNav = ({open}) => {
   return (
     <Ul open = {open}> 
         <li> <a href="#" onClick ={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}> Home </a> </li>
-        <li> <a href="#services" onClick ={() => setActiveNav('#services')} className={activeNav === '#services' ? 'active' : ''}> Services </a> </li>
         <li> <a href="#about" onClick ={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : ''}> About Us </a> </li>
+        <li> <a href="#services" onClick ={() => setActiveNav('#services')} className={activeNav === '#services' ? 'active' : ''}> Services </a> </li>
         <li> <a href="#contact" onClick ={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}> Contact Us</a> </li>
     </Ul>
   )
