@@ -4,6 +4,7 @@ import { mobile } from '../../Responsive';
 import { tablet } from "../../Responsive";
 import Navbar from '../Navbar/Navbar';
 import HeroImage from '../../assets/hero.jpg';
+import {motion} from 'framer-motion';
 
 
 const HeroContainer = styled.div`
@@ -93,12 +94,20 @@ const Hero = () => {
                 <Split>
                 <Left>
                     <Text>
-                    <h1> Make Your Business Grow and Solve Your Problem </h1>
+                    <motion.h1
+                        initial={{ opacity: 0}}
+                        animate={{ opacity: 1}}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}>
+                        Make Your Business Grow and Solve Your Problem </motion.h1>
                     </Text>  
                 </Left>
                 <Right>
                     <Text>
-                    <h5>Choose a beautiful and minimalist web agency with values that converts more visitors that any website.</h5>
+                    <motion.h5
+                        initial={{ x: "-100%"}}
+                        animate={{ x: "0"}}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}>
+                            Choose a beautiful and minimalist web agency with values that converts more visitors that any website.</motion.h5>
                     </Text>
                     <Button>
                         Lets Talk
