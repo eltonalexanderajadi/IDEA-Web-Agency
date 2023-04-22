@@ -13,20 +13,14 @@ const StyledBurger = styled.div`
     right: 20px;
     z-index: 20;
     display: none;
+    ${mobile({ display: "flex", justifyContent: "space-around", flexFlow: "column nowrap" })};
     ${tablet({ display: "flex", justifyContent: "space-around", flexFlow: "column nowrap"})};
-
-    @media (max-width: 600px) {
-      display: flex;
-      justify-content: space-around;
-      flex-flow: column nowrap;       
-    }
-
 
 
     div {
         width: 2rem;
         height: 0.25rem;
-        background-color: ${({ open }) => open ? '#fff' : "#ffffff"};
+        background-color: ${({ open }) => open ? '#fff' : "#fff"};
         border-radius: 10px;
         transform-origin: 1px;
         transition: all 0.3s linear;
@@ -49,11 +43,15 @@ const StyledBurger = styled.div`
 
 
 const Burger = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+
+        const handleClick = () => {
+            setOpen(!open);
+        };
 
   return (
     <>
-   <StyledBurger open={open} onClick = {() => setOpen(!open)}>
+   <StyledBurger open={open} onClick = {handleClick}>
         <div />
         <div />
         <div />
