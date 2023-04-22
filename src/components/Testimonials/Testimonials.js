@@ -12,6 +12,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const TestimonialContainer = styled.div`
     display: flex;
@@ -70,7 +72,7 @@ const Left = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    ${mobile ({ padding: "0 2rem 0 2rem"})};
+    ${mobile ({ padding: "0 2rem 0 2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"})};
 
 `;
 
@@ -81,7 +83,7 @@ const Right = styled.div`
     padding: 3rem;
     flex-direction: column;
     ${tablet({ padding: "3rem 12rem 3rem 6rem"})};
-    ${mobile ({ display: "flex", flexDirection: "column", padding: "1rem 2rem 1rem 2rem"})};
+    ${mobile ({ display: "flex", flexDirection: "column", padding: "1rem 2rem 1rem 2rem", alignItems: "center", justifyContent: "center"})};
 
     h5 {
     color: #000000;
@@ -94,7 +96,7 @@ const Title = styled.div`
 
     &.title {
         margin-left: 0rem;
-        ${mobile ({ textAlign: "center"})};
+        
     }
 
     &.title:before {
@@ -113,7 +115,7 @@ const Title = styled.div`
 
 const Text = styled.div`
     width: 470px;
-    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem" })};
+    ${mobile ({ textAlign: "center", width: "350px" })};
 
     span {
         font-size: 2.5rem;
@@ -126,7 +128,7 @@ const Text = styled.div`
 
 const P = styled.div`
     width: 420px;
-    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem"})};
+    ${mobile ({ textAlign: "center", width: "350px"})};
 
     span {
         color: var( --color-light);
@@ -149,20 +151,24 @@ const Button = styled.button`
 `;
 
 const Testimonials = () => {
+    useEffect(() => {
+        Aos.init({duration: 1000});
+      },[]);
+
   return (
     <TestimonialContainer>
         <Split>
                 <Left>
-                <Title className='title'> Testimonial </Title>
-                    <Text>
+                <Title className='title'> <span data-aos="fade-in"> Testimonial </span> </Title>
+                    <Text data-aos="slide-right">
                     <span> What People Say About Us </span>
                     </Text>  
                 </Left>
                 <Right>
-                    <P>
-                    <span>Choose a beautiful and minimalist web agency with values that converts more visitors that any website.</span>
+                    <P data-aos="slide-left">
+                    <span data-aos="fade-in">Choose a beautiful and minimalist web agency with values that converts more visitors that any website.</span>
                     </P>
-                    <Btn>
+                    <Btn data-aos="slide-left">
                     <Button>
                         Learn More
                     </Button>
