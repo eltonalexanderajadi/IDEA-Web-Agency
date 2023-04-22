@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import AboutCard from '../Cards/AboutCard';
 import { mobile } from '../../Responsive';
 import { tablet } from "../../Responsive";
+import NumberCounter from 'number-counter';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 
 const AboutContainer = styled.div`
@@ -12,21 +15,17 @@ const AboutContainer = styled.div`
     margin-top: 15rem;
     margin-bottom: 13rem;
     ${tablet({ flexDirection: "column", marginTop: "10rem", marginBottom: "8rem"})};
-    ${mobile ({ height: "100%"})};
+    ${mobile ({ height: "100%", flexDirection: "column", gap: "5rem"})};
 `;
 
-const Split = styled.div`
-    display: flex;
-    justify-content: space-between;
-    ${tablet({ flexDirection: "column"})};
-`;
+
 
 const Left = styled.div`
     padding: 0 12rem 0 6rem;
     display: flex;
     flex-direction: column;
     position: relative;
-    ${mobile ({ padding: "0 2rem 0 2rem"})};
+    ${mobile ({ padding: "0 2rem 0 2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"})};
 `;
 
 const Title = styled.div`
@@ -36,7 +35,7 @@ const Title = styled.div`
 
     &.title {
         margin-left: 0rem;
-        ${mobile ({ textAlign: "center"})};
+       
        
     }
 
@@ -57,7 +56,7 @@ const Title = styled.div`
 const Text = styled.div`
     width: 350px;
     margin-bottom: 2rem;
-    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem", marginBottom: "1rem"})};
+    ${mobile ({ textAlign: "center", width: "350px", marginBottom: "1rem"})};
     
     span {
         font-size: 2.5rem;
@@ -70,7 +69,7 @@ const Text = styled.div`
 
 const P = styled.div`
     width: 420px;
-    ${mobile ({ textAlign: "center", width: "350px", padding: "0 3rem 0 1rem"})};
+    ${mobile ({ textAlign: "center", width: "350px"})};
 
     span {
         color: var( --color-light);
@@ -81,17 +80,18 @@ const Right = styled.div`
     position: relative;
     margin-top: 3rem;
     ${tablet({ margin: "3rem 6rem 0rem 6rem"})};
-    ${mobile ({ display: "flex", flexDirection: "column", gap: "15rem", margin: "2rem 1rem 2rem 2.5rem"})};
+    ${mobile ({ display: "flex", flexDirection: "column", gap: "17rem" })};
+
     &>* {
         position: absolute;
-        ${mobile ({ position: "static"})};
+        ${mobile ({ position: "static", })};
        
     }
    
 `;
 
 const RightContainer = styled.div`
-    
+
 `;
 
 const Btn = styled.div`
@@ -112,43 +112,48 @@ const Button = styled.button`
 
 
 const About = () => {
+
+    useEffect(() => {
+        Aos.init({duration: 1000});
+      },[]);
+
   return (
-    <AboutContainer>
-        <Split>
+    <AboutContainer id='about'>
+        
         <Left>
-        <Title className='title'> About Us </Title>
-            <Text> <span>What makes us stand out </span></Text>
-            <P>
-            <span> Our services help you create digital products and solve</span>
-            <span> your problems objectively,strategically and technologicaly.</span>
-            <span> Our service also has a high appeal because it has</span>
-            <span> a beautiful color combination and a minimalist concept.</span>
+        <Title className='title'> <span data-aos="fade-in"> About Us </span> </Title>
+            <Text data-aos="slide-right"> <span data-aos="fade-in">What makes us stand out </span></Text>
+            <P data-aos="slide-right">
+            <span data-aos="zoom-in"> Our services help you create digital products and solve</span>
+            <span data-aos="zoom-in"> your problems objectively,strategically and technologicaly.</span>
+            <span data-aos="zoom-in"> Our service also has a high appeal because it has</span>
+            <span data-aos="zoom-in"> a beautiful color combination and a minimalist concept.</span>
             </P>
-            <Btn> <Button> Learn More </Button> </Btn>
+            <Btn data-aos="slide-right"> <Button> Learn More </Button> </Btn>
         </Left>
         <Right>
-           <RightContainer style={{left: "20rem"}}>
-                <AboutCard 
-                number = {'10+'}
+           <RightContainer style={{left: "20rem"}} data-aos="fade-in">
+                <AboutCard  
+                number = { <NumberCounter end = {25} start = {0} delay='2' postFix='+' /> }
                 heading = {'Projects Completed'}
                 />
            </RightContainer>
 
-           <RightContainer style={{top: "12rem", left: "4rem"}}>
+           <RightContainer style={{top: "12rem", left: "4rem"}}  data-aos="fade-in">
                 <AboutCard 
-                number = {'10+'}
-                heading = {'Projects Completed'}
+                number = { <NumberCounter end = {20} start = {0} delay='3' postFix='+' /> }
+                heading = {'Happy Clients'}
                 />
            </RightContainer>
 
-           <RightContainer style={{top: "19rem", left: "18rem"}}>
-                <AboutCard 
-                number = {'10+'}
-                heading = {'Projects Completed'}
+           <RightContainer style={{top: "19rem", left: "18rem"}} data-aos="fade-in">
+                <AboutCard  
+                number = { <NumberCounter end = {10} start = {0} delay='3' postFix='+' /> }
+                heading = {'Years Experience'}
                 />
            </RightContainer>
         </Right>
-        </Split>
+        
     </AboutContainer>
   )
 }
