@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { mobile } from '../../Responsive';
 import { tablet } from "../../Responsive";
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const Container = styled.div`
     
@@ -16,7 +18,7 @@ const CardContainer = styled.div`
     gap: 2rem;
     position: relative;
     ${tablet({ gridTemplateColumns: "1fr", padding: "0 6rem 0 6rem" })};
-    ${mobile ({ padding: "0 3rem 0 1.2rem" })};
+    ${mobile ({ padding: "1rem 2rem 1rem 2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"})};
     
 `;
 
@@ -57,11 +59,16 @@ const P = styled.div`
 `;
 
 const ServicesCard = () => {
+
+    useEffect(() => {
+        Aos.init({duration: 1000});
+      },[]);
+
   return (
     <Container>
         <CardContainer>
 
-        <ServiceCard>
+        <ServiceCard data-aos="zoom-in">
         <Text> <span>Consultant Business Strategy </span></Text>
         <P>
             <span> We provide the best solutions for your digital</span>
@@ -70,7 +77,7 @@ const ServicesCard = () => {
        </P>
         </ServiceCard>
 
-        <ServiceCard>
+        <ServiceCard data-aos="zoom-in">
         <Text> <span>Google Ads Management </span></Text>
         <P>
             <span> Help manage ads on google to further maximize</span>
@@ -78,7 +85,7 @@ const ServicesCard = () => {
        </P>
         </ServiceCard>
 
-        <ServiceCard>
+        <ServiceCard data-aos="zoom-in">
         <Text> <span> Research And Discovery</span></Text>
         <P>
             <span> Conduct in-depth and detailed analysis to obtain as much </span>
@@ -87,7 +94,7 @@ const ServicesCard = () => {
        </P>
         </ServiceCard>
 
-        <ServiceCard>
+        <ServiceCard data-aos="zoom-in">
         <Text> <span> Social Media Marketing </span></Text>
         <P>
             <span>  Provide customer attraction on social media for your </span>
