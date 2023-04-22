@@ -5,9 +5,8 @@ import { tablet } from "../../Responsive";
 
 
 const CardContainer = styled.div`
-    position: relative;
-    
-    
+    position: relative;   
+    ${mobile ({display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",})}
     
 `;
 
@@ -24,7 +23,7 @@ const Card = styled.div`
     background: var(--color-primary);
     padding: 0px 26px 2rem 26px;
     box-shadow: -5px 5px;
-    ${mobile ({ width: "19rem"})};
+    ${mobile ({ width: "auto"})};
     
 
     span {
@@ -36,15 +35,6 @@ const Card = styled.div`
     p {
         font-size: 14px;
     }
-`;
-
-const Shadow = styled.div`
-    position: absolute;
-    width: 10rem;
-    height: 11rem;
-    right: -9.5rem;
-    top: 1.5rem;
-    background: #121212
 `;
 
 
